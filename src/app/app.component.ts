@@ -4,6 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { WeatherService } from './weather.service';
 import { IWeatherResponse } from './weatherresponse';
+import { GraphComponent, GraphData } from './graph/graph.component';
 
 class CityWeather {
   constructor(
@@ -31,7 +32,9 @@ const cityIds = ['2653822', '2653941', '2643743', '2656173', '2644667', '2640729
 })
 export class AppComponent implements OnInit {
   
-  public weatherData;
+  public weatherData : Array<CityWeather>;
+
+  @ViewChild(GraphComponent) childGraphComponent : GraphComponent;
 
   /**
    * Table related variables
@@ -53,6 +56,7 @@ export class AppComponent implements OnInit {
         this.dataSource = new MatTableDataSource(this.weatherData);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
+        this.childGraphComponent.loadGraph(this.getGraphData());
       }
     );
   }
@@ -75,6 +79,10 @@ export class AppComponent implements OnInit {
 
   applyFilter(filterText: string) {
     this.dataSource.filter=filterText.trim().toLowerCase();
+  }
+
+  getGraphData() : Array<GraphData> {
+    return this.weatherData.map(a => ({city_name: a.city_name, temp: a.temperature}))
   }
 
 }

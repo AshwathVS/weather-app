@@ -1,5 +1,3 @@
-<p>graph works!</p>
-<p *ngIf="parentData">
-    Hello
-    {{parentData.length}}
-</p>
+<div [hidden]="!chart">
+    <canvas id='canvas'>{{ chart }}</canvas>
+</div>

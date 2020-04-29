@@ -29,7 +29,7 @@
   
     <ng-container matColumnDef="feels_like">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Feels like </th>
-      <td mat-cell *matCellDef="let element"> {{element.feels_like}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.feels_like}}&deg;C </td>
     </ng-container>
 
     <ng-container matColumnDef="humidity">
@@ -50,8 +50,5 @@
 </div>
 
 <br>
-
-
-<app-graph [parentData]="weatherData">
-  
-</app-graph>
+<br>
+<app-graph></app-graph>
