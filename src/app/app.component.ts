@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -34,14 +34,14 @@ export class AppComponent implements OnInit {
   
   public weatherData : Array<CityWeather>;
 
-  @ViewChild(GraphComponent) childGraphComponent : GraphComponent;
+  @ViewChild(GraphComponent) graphComponent : GraphComponent;
 
   /**
    * Table related variables
    */
   displayedColumns: string[] = ['id', 'city_name', 'country', 'temperature', 'feels_like', 'humidity', 'weather_description'];
 
-  public dataSource;
+  public dataSource : MatTableDataSource<any>;
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
@@ -56,16 +56,16 @@ export class AppComponent implements OnInit {
         this.dataSource = new MatTableDataSource(this.weatherData);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
-        this.childGraphComponent.loadGraph(this.getGraphData());
+        this.graphComponent.loadGraph(this.getGraphData());
       }
     );
   }
 
   extractCityWeather(weatherResponse : IWeatherResponse) : Array<CityWeather> {
     let res = new Array<CityWeather>();
-    var i=1;
+    var ctr = 1;
     weatherResponse.list.forEach(element => {
-      res.push(new CityWeather(i++, element.main.temp, 
+      res.push(new CityWeather(ctr++, element.main.temp, 
         element.main.feels_like, 
         element.main.temp_max,
         element.main.temp_min,

@@ -2,10 +2,10 @@
 <div class="mat-elevation-z8">
   <div style="padding-left: 1%; padding-top: 1%;">
     <mat-form-field>
-      <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Filter text">
+      <input id="inpSearch" (keyup)="applyFilter($event.target.value)" matInput placeholder="Filter text">
     </mat-form-field>
   </div>
-  <table mat-table [dataSource]="dataSource" matSort>
+  <table id="tbData" mat-table [dataSource]="dataSource" matSort>
 
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
@@ -45,7 +45,7 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  <mat-paginator id="cpaginator" [pageSizeOptions]="[5, 10, 20]" ></mat-paginator>
   
 </div>
 
