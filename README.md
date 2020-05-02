@@ -20,11 +20,11 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Sample Screenshots
 
-### Table Screenshot
+### Table
 ![Table Screenshot](https://github.com/AshwathVS/weather-app/blob/master/Table.jpg)
 
-### Graph Screenshot
+### Graph
 ![Graph Screenshot](https://github.com/AshwathVS/weather-app/blob/master/Graph.jpg)
 
-### Unit test Screenshot
+### Unit test
 ![Unit test Screenshot](https://github.com/AshwathVS/weather-app/blob/master/Unittest.jpg)
