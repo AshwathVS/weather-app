@@ -17,3 +17,14 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Sample Screenshots
+
+### Table Screenshot
+![Table Screenshot](https://github.com/AshwathVS/weather-app/blob/master/Table.jpg)
+
+### Graph Screenshot
+![Graph Screenshot](https://github.com/AshwathVS/weather-app/blob/master/Graph.jpg)
+
+### Unit test Screenshot
+![Unit test Screenshot](https://github.com/AshwathVS/weather-app/blob/master/Unittest.jpg)
